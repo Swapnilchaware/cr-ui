@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row d-flex justify-content-center align-items-center vh-100">
+        <div class="col form-wrapper d-flex justify-content-center">
+           
+            <div class="login-box">
+               
+                <div class="lb-header">
+                    <a class="active"   id="login-box-link">Profile</a>
+                </div>
+             
+                <div class="email-login">
+                    <div class="u-form-group">
+                        <h4>Username</h4>
+                        <p> {{profileDetail.username}} </p>
+                    </div>
+                    <div class="u-form-group">
+                        <h4>Date of birth</h4>
+                        <p> {{profileDetail.dateOfBirth}} </p>
+                    </div>
+                    <div class="u-form-group">
+                        <button routerLink="/coin" >Check Coin</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

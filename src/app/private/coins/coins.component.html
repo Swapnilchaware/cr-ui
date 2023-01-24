@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row d-flex justify-content-center align-items-center vh-100">
+        <div class="col form-wrapper d-flex justify-content-center">
+
+            <div class="login-box">
+
+                <div class="lb-header bg-black card-header">
+                    <a id="login-box-link">CoinRich</a>
+                </div>
+                <div class="content-wrapper">
+                    <div class="content-analytics">
+                        <p class="show-chart"> <span class="material-symbols-outlined">
+                                pie_chart
+                            </span> Show Chart</p>
+                        <p class="count">Count {{totalLength}}</p>
+                    </div>
+
+
+                    <div class="card-body">
+                        <div class="card-body-wrapper" *ngFor="let data of totalRecords">
+                            <div class="card-item name">{{data.name}}</div>
+                            <div class="card-item percentage">
+                                <span style="color: green;font-size: 18px;"
+                                    *ngIf="data.quote.USD.percent_change_24h > 0" class="material-symbols-outlined">
+                                    arrow_upward
+                                </span>
+                                <span style="color: red;font-size: 18px;" *ngIf="data.quote.USD.percent_change_24h <= 0"
+                                    class="material-symbols-outlined">
+                                    arrow_downward
+                                </span>
+                                {{data.quote.USD.percent_change_24h}}
+                            </div>
+                            <div class="card-item code"> {{data.symbol}} </div>
+
+                            <div class="card-item price">Price ${{truncValue((data.quote.USD.price)*100)}}</div>
+                            <div class="card-item rank"> Rank {{data.cmc_rank}} </div>
+                            <div class="card-item arrow">
+                                <span class="material-symbols-outlined">
+                                    arrow_circle_right
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

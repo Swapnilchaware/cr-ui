@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row d-flex justify-content-center align-items-center vh-100">
+        <div class="col form-wrapper d-flex justify-content-center">
+           
+            <div class="login-box">
+               
+                <div class="lb-header">
+                    <a (click)="onLoginClick()" [ngClass]="isLogin ? 'active' : ''"   id="login-box-link">Login</a>
+                    <a  (click)="onSignUpClick()" [ngClass]="!isLogin ? 'active' : ''" id="signup-box-link">Sign Up</a>
+                </div>
+             
+              <div *ngIf="isLogin">
+                <form [formGroup]="loginForm" class="email-login">
+                    <div class="u-form-group">
+                        <input  formControlName="username" type="text" placeholder="Username" />
+                        <h4 style="color: red;font-size: 15px;" *ngIf="f['username'].errors && f['username'].touched"  >Please Enter Valid username</h4>
+                    </div>
+                    <div class="u-form-group">
+                        <input  formControlName="password" type="password" placeholder="Password" />
+                        <h4 style="color: red;font-size: 15px;" *ngIf="f['password'].errors && f['password'].touched">Please Enter Valid password</h4>
+                    </div>
+                    <div class="u-form-group">
+                        <button  (click)="submitForm()" >Log in</button>
+                    </div>
+                </form>
+              </div>
+
+
+                <div *ngIf="!isLogin">
+                    <form [formGroup]="signUpForm" class="email-signup">
+                        <div class="u-form-group">
+                            <input  formControlName="username" type="text" placeholder="Username" />
+                        <h4 style="color: red;font-size: 15px;" *ngIf="s['username'].errors && s['username'].touched"  >Please Enter Valid username</h4>
+
+                        </div>
+                        <div class="u-form-group">
+                            <input  formControlName="password" type="password" placeholder="Password" />
+                            <p style="font-size: 10px">1 upper case,1 lower case, 1 special char,1 digit</p>
+                        <h4 style="color: red;font-size: 15px;" *ngIf="s['password'].errors && s['password'].touched"  >Please Enter Valid password</h4>
+
+                        </div>
+                        <div class="u-form-group">
+                            <input  formControlName="DOB" type="date" placeholder="Date of Birth" />
+                        <h4 style="color: red;font-size: 15px;" *ngIf="s['DOB'].errors && s['DOB'].touched"  >Please Select DOB</h4>
+
+                        </div>
+                        <div class="u-form-group">
+                            <button  (click)="submitForm()">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
